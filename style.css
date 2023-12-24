@@ -1,18 +1,25 @@
+/* ================ Сбросс стилей ================ */
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/*  ======================== main style ============================ */
+/* ================ Общие стили ================ */
 
-html, body {
+html,
+body {
     font-family: 'Rubik', sans-serif;
     font-style: normal;
 }
 
 a {
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 ul {
@@ -22,6 +29,12 @@ ul {
 button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-5px);
 }
 
 .title {
@@ -38,22 +51,51 @@ button {
     line-height: 22px;
 }
 
-/* ======================== header ============================ */
+.container {
+    height: 100%;
+    width: 100%;
+    max-width: 1170px;
+    padding: 0 15px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid red;
+}
+
+/* ================ Стили для Хедера ================ */
 
 .header {
     background-color: #0A61F7;
     padding: 14px 0;
 }
 
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    gap: 24px;
+}
+
 .menu-link {
     color: #FFF;
     font-size: 12px;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 20px; /* 166.667% */
     letter-spacing: 1.4px;
     text-transform: uppercase;
 }
-/* ======================== section 1 ============================ */
+
+/* ================ Стили для 1-й секции ================ */
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
 
 .main-title {
     color: #363940;
@@ -63,15 +105,16 @@ button {
     margin-bottom: 30px;
 }
 
-.text {
+.main .text {
     margin-bottom: 40px;
+    max-width: 380px;
 }
 
 .button {
     width: 152px;
     height: 51px;
     border-radius: 4px;
-    background-color: #0A61F7;
+    background: #0A61F7;
     font-size: 14px;
     color: #FFF;
     font-weight: 500;
@@ -80,11 +123,21 @@ button {
     text-transform: uppercase;
 }
 
-/* ======================== section 2 ============================ */
+.main-img {
+    align-self: flex-end;
+}
+
+/* ================ Стили для 2-й секции ================ */
 
 .rates-section {
     background-color: #F9FAFC;
     padding: 100px 0;
+}
+
+.rates-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center
 }
 
 .rates-section .title {
@@ -99,8 +152,8 @@ button {
     border-collapse: collapse;
 }
 
-th, td {
-    border:  1px solid #95A1BB;
+th, td { /* Стилизуем по названию тега */
+    border: 1px solid #95A1BB;
     width: 240px;
     padding: 15px 0;
     text-align: center;
@@ -123,7 +176,7 @@ th, td {
 }
 
 .table-subtitle.gray {
-    color: #95A1BB;
+    color: #95A1BB; /* стиль применится, если у элемента будут эти оба класса */
 }
 
 .table-link {
@@ -143,8 +196,8 @@ th, td {
     color: #0A61F7;
 }
 
-.table-button.active {
-    background-color: #0A61F7;
+.table-button.active { /* эти свойства применятся, если у кнопки будут оба класса */
+    background: #0A61F7;
     color: #FFF;
 }
 
@@ -152,10 +205,15 @@ th, td {
     padding: 30px 0;
 }
 
-/* ======================== section 3 ============================ */
+/* ================ Стили для 3-й секции ================ */
 
 .create-account-section {
     padding: 100px 0;
+}
+
+.account-wrapper {
+    display: flex;
+    justify-content: space-between;
 }
 
 .create-account-section .title {
@@ -177,6 +235,15 @@ th, td {
 form {
     width: 100%;
     max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, select, fieldset, textarea {
+    border-radius: 4px;
+    border: 1px solid #95A1BB;
+    padding: 14px 15px;
 }
 
 input, select, fieldset, textarea, label, legend, input::placeholder, select::placeholder, textarea::placeholder {
@@ -194,6 +261,23 @@ input[type="text"] {
 input[type="email"], input[type="password"], input[type="date"], select {
     width: 230px;
     height: 50px;
+    flex-grow: 1;
+}
+
+input[type="radio"], input[type="checkbox"], input[type="date"], select {
+    cursor: pointer;
+}
+
+.stack,
+fieldset {
+    display: flex;
+    column-gap: 30px;
+}
+
+.fields-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 fieldset {
@@ -207,7 +291,7 @@ textarea {
     resize: none;
 }
 
-form.button {
+form .button {
     width: 100%;
 }
 
@@ -220,7 +304,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: url(./assets/images/Calendar.svg) no-repeat;
 }
 
-/* ======================== footer ============================ */
+/* ================ Стили для футера ================ */
 
 .footer {
     background-color: #0A61F7;
